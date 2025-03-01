@@ -1,0 +1,14 @@
+.table-r,
+.table-h {
+  border: 1px solid black;
+}
+
+.table-r,
+.table-h {
+  padding: 10px;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 10px;
+}

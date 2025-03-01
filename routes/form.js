@@ -1,9 +1,11 @@
 const { Router } = require("express");
+const { createUsernameGet } = require("../controllers/controller");
+const { createUsernamePost } = require("../controllers/controller");
 
 const formRouter = Router();
 
-formRouter.get("/", (req, res) => {
-  res.render("form", { name: "hussain" });
-});
+formRouter.get("/", createUsernameGet);
+
+formRouter.post("/", createUsernamePost);
 
 module.exports = formRouter;

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>users</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+  </head>
+  <body>
+    <h2 class="heading">Users:</h2>
+
+    <table class="table">
+      <tr class="table-r">
+        <th class="table-h">Id</th>
+        <th class="table-h">User name</th>
+      </tr>
+
+      <% usernames.map(user => { %>
+      <tr class="table-r">
+        <td class="table-h"><%= user.id %></td>
+        <td class="table-h"><%= user.username %></td>
+      </tr>
+      <% }) %>
+    </table>
+
+    <button onclick="window.location.href='/new'" class="submit-btn">
+      Create user
+    </button>
+    <button onclick="window.location.href='/delete'" class="submit-btn">
+      Delete user
+    </button>
+  </body>
+</html>

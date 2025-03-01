@@ -4,19 +4,22 @@ const app = express();
 const path = require("node:path");
 
 const formRouter = require("./routes/form");
+const renderRouter = require("./routes/renderUsername");
+const deleteRouter = require("./routes/deleteRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.use("/", renderRouter);
+
 app.use("/new", formRouter);
 
-app.get("/", (req, res) => {
-  res.send("usernames will be logged here - wip");
-});
-
-app.post("/new", (req, res) => {
-  res.send("username to be saved: ", req.body.username);
-});
+app.use("/delete", deleteRouter);
 
 const PORT = process.env.PORT_ENV;
 
