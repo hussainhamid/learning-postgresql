@@ -26,10 +26,31 @@ async function deleteUsernameController(req, res) {
   res.redirect("/");
 }
 
+async function searchFormRender(req, res) {
+  res.render("searchForm");
+}
+
+async function searchUsernameController(req, res) {
+  const { searchId } = req.body;
+
+  const result = await db.searchUsername(searchId);
+
+  res.render("renderSearchUsers", { usernames: result.rows });
+}
+
+async function deleteDBController(req, res) {
+  await db.deleteDB();
+
+  res.redirect("/");
+}
+
 module.exports = {
   getUsernames,
   createUsernameGet,
   createUsernamePost,
   deleteUsernameController,
   deleteFormRender,
+  searchFormRender,
+  searchUsernameController,
+  deleteDBController,
 };

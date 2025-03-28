@@ -29,29 +29,8 @@
     <button class="submit-btn del-btn" onclick="window.location.href='/delete'">
       Delete user
     </button>
-    <button
-      class="submit-btn search-btn"
-      onclick="window.location.href='/search'"
-    >
-      search
+    <button class="submit-btn search-btn" onclick="window.location.href='/'">
+      home
     </button>
-
-    <button class="submit-btn del-all-btn" onclick="confrimFunc()">
-      DELETE everything
-    </button>
-
-    <script>
-      function confrimFunc() {
-        const confirmButton = confirm(
-          "WARNING!! this will delete EVERYTHING. are you sure?"
-        );
-
-        if (!confirmButton) {
-          event.preventDefault();
-        } else {
-          window.location.href = "/deleteAll";
-        }
-      }
-    </script>
   </body>
 </html>

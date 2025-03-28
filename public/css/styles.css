@@ -12,3 +12,17 @@
   margin-top: 20px;
   padding: 10px;
 }
+
+.del-all-btn {
+  font-weight: 700;
+  border-color: #dc4c64;
+  background-color: white;
+  color: #dc4c64;
+  border-radius: 7px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.del-all-btn:hover {
+  background-color: #dc4c64;
+  color: white;
+}

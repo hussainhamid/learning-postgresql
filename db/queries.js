@@ -13,8 +13,23 @@ async function deleteUsername(id) {
   await pool.query("DELETE FROM usernames WHERE id = ($1)", [id]);
 }
 
+async function searchUsername(user) {
+  const result = await pool.query(
+    "SELECT * FROM usernames WHERE username LIKE ($1)",
+    [`%${user}%`]
+  );
+
+  return result;
+}
+
+async function deleteDB() {
+  await pool.query("TRUNCATE TABLE usernames");
+}
+
 module.exports = {
   getAllUsernames,
   insertUsernames,
   deleteUsername,
+  searchUsername,
+  deleteDB,
 };
